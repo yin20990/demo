@@ -1,7 +1,6 @@
 #include<iostream>
 using namespace std;
 #define MAX 1000
-//菜单界面
 
 void showmenu()
 {
@@ -13,7 +12,6 @@ void showmenu()
 	cout << "     6.清空联系人" << endl;
 	cout << "     0.退出通讯录" << endl;
 }
-
 
 struct Person
 {
@@ -83,17 +81,13 @@ void Addperson(Addressbooks* abs)
 
 		system("pause");
 		system("cls");
-
-
 	}
 }
 
 void showperson(Addressbooks * abs)
 {
 	if (abs->m_Size == 0)
-	{
 		cout << "当前通讯录为空" << endl;
-	}
 	else
 	{
 		for (int i = 0; i < abs->m_Size; i++)
@@ -112,12 +106,8 @@ void showperson(Addressbooks * abs)
 int isExist(Addressbooks* abs,string name)
 {
 	for (int i = 0; i < abs->m_Size; i++)
-	{
 		if (abs->personArray[i].m_name == name)
-		{
 			return i;
-		}
-	}
 	return -1;
 }
 
@@ -128,9 +118,7 @@ void deleteperson(Addressbooks* abs)
 	cin >> name;
 	int ret = isExist(abs, name);
 	if (ret == -1)
-	{
 		cout << "查无此人" << endl;
-	}
 	else
 	{
 		for (int i = ret; i < abs->m_Size; i++)
@@ -159,17 +147,14 @@ void findperson(Addressbooks* abs)
 		cout << "住址：" << abs->personArray[ret].m_addr << endl;;
 	}
 	else
-	{
 		cout << "查无此人" << endl;
-	}
 	system("pause");
 	system("cls");
-
 }
 
 void modifyperson(Addressbooks* abs)
 {
-	cout << "请输入您要查找的联系人" << endl;
+	cout << "请输入您要修改的联系人" << endl;
 	string name;
 	cin >> name;
 	int ret = isExist(abs, name);
@@ -212,9 +197,7 @@ void modifyperson(Addressbooks* abs)
 		abs->personArray[ret].m_addr = address;
 	}
 	else
-	{
 		cout << "查无此人" << endl;
-	}
 
 	system("pause");
 	system("cls");
@@ -231,15 +214,11 @@ int main()
 {
 	Addressbooks abs;
 	abs.m_Size = 0;
-
 	int select = 0;
-
 	while (1)
 	{
 		showmenu();
-
 		cin >> select;
-
 		switch (select)
 		{
 		case 1:
@@ -269,7 +248,6 @@ int main()
 			break;
 		}
 	}
-
 	system("pause");
 	return 0;
 }
